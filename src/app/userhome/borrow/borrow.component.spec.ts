@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeviewComponent } from './homeview.component';
+import { BorrowComponent } from './borrow.component';
 
-describe('MainviewComponent', () => {
-  let component: HomeviewComponent;
-  let fixture: ComponentFixture<HomeviewComponent>;
+describe('BorrowComponent', () => {
+  let component: BorrowComponent;
+  let fixture: ComponentFixture<BorrowComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeviewComponent ]
+      declarations: [ BorrowComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomeviewComponent);
+    fixture = TestBed.createComponent(BorrowComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

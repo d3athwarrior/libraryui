@@ -14,15 +14,14 @@ import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
-import { HomeviewComponent } from './mainview/homeview.component';
+import { UserHomeComponent } from './userhome/user-home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    LoginComponent,
-    HomeviewComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
