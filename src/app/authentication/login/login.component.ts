@@ -28,10 +28,17 @@ export class LoginComponent {
       this.authService.login(this.userName).subscribe(response => {
         this.authService.isLoggedIn = true;
         this.authService.loggedInUserId = response;
-        this.router.navigate(['/user-home'], navigationExtras).then(value => {
-          if(!value)
-            console.log(value);
-        });
+        if (response != -1) {
+          this.router.navigate(['/user-home'], navigationExtras).then(value => {
+            if (!value)
+              console.log(value);
+          });
+        } else {
+          /*
+           * Preferably a material dialog should be shown or a field on the UI should be used to show error
+           */
+          alert("Invalid user")
+        }
       });
     // }
   }
