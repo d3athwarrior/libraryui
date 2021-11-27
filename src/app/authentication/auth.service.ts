@@ -14,11 +14,11 @@ export class AuthService {
   // store the URL so we can redirect after logging in
   redirectUrl: string | null = null;
 
-  constructor(private httpClient:HttpClient) {
+  constructor(private httpClient: HttpClient) {
   }
 
-  login(userName: String): Observable<any> {
-    return this.httpClient.post<number>(environment.apiUrl + "/login", {"userName": userName}, { observe: 'response' }).pipe(catchError(AuthService.handleError));
+  login(userId: Number): Observable<any> {
+    return this.httpClient.post<number>(environment.apiUrl + "/login", userId, {observe: 'response'}).pipe(catchError(AuthService.handleError));
   }
 
   logout(): void {

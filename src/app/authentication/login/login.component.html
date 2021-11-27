@@ -4,8 +4,8 @@
     <form (ngSubmit)="login()" #loginForm="ngForm">
     <mat-card-content class="centered-card-text">
       <mat-form-field appearance="fill">
-        <mat-label>User Name</mat-label>
-        <input matInput value="" required id="userName" [(ngModel)]="userName" name="userName"
+        <mat-label>User Id (it will be a number)</mat-label>
+        <input matInput value="" required id="userName" [(ngModel)]="userId" name="userName"
                #user="ngModel">
       </mat-form-field>
       <div [hidden]="user.valid || user.pristine">
