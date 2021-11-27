@@ -1,14 +1,20 @@
 <div class="centered-card">
   <mat-card style="min-width: 300px">
     <mat-card-title class="centered-card-text">Welcome to Library</mat-card-title>
+    <form (ngSubmit)="login()" #loginForm="ngForm">
     <mat-card-content class="centered-card-text">
       <mat-form-field appearance="fill">
         <mat-label>User Name</mat-label>
-        <input matInput value="">
+        <input matInput value="" required id="userName" [(ngModel)]="userName" name="userName"
+               #user="ngModel">
       </mat-form-field>
+      <div [hidden]="user.valid || user.pristine">
+        Name is required
+      </div>
     </mat-card-content>
     <mat-card-actions class="centered-card-text">
-      <button mat-flat-button color="primary" (click)="login()">Login</button>
+      <button mat-flat-button color="primary" type="submit" [disabled]="!loginForm.form.valid">Login</button>
     </mat-card-actions>
+    </form>
   </mat-card>
 </div>
