@@ -1,0 +1,11 @@
+.centered-card {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: available;
+  height: calc(100% - 148px);
+}
+.centered-card-text {
+  text-align: center;
+}

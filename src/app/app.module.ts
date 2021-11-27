@@ -21,7 +21,7 @@ import { MainviewComponent } from './mainview/mainview.component';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    // LoginComponent,
+    LoginComponent,
     // MainviewComponent
   ],
   imports: [
