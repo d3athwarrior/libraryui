@@ -20,10 +20,10 @@ export class BorrowerService extends BaseHttpService {
   }
 
   public getBorrowedBooks(userId: Number): Observable<UserBookResponseDTO> {
-    return this.httpClient.get<UserBookResponseDTO>(environment.apiUrl + userId + "/issuedBooks")
+    return this.httpClient.get<UserBookResponseDTO>(environment.apiUrl + "/users/" + userId + "/issuedBooks")
   }
 
-  public returnBorrowedBook(userId: Number, bookId: Number): Observable<UserReturnBookResponseDTO> {
-    return this.httpClient.post<UserReturnBookResponseDTO>(environment.apiUrl + userId + "/returnbook/" + bookId, this.options);
+  public returnBorrowedBook(userId: Number, bookId: Number): Observable<any> {
+    return this.httpClient.post<UserReturnBookResponseDTO>(environment.apiUrl + "/users/" + userId + "/returnbook/" + bookId, null, this.options);
   }
 }

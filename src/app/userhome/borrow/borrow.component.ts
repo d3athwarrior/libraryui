@@ -9,7 +9,7 @@ import {AuthService} from "../../authentication/auth.service";
 @Component({
   selector: 'app-borrow',
   templateUrl: './borrow.component.html',
-  styleUrls: ['./borrow.component.css']
+  styleUrls: ['./borrow.component.css', '../common-table-layout.css']
 })
 export class BorrowComponent implements OnInit, OnDestroy, AfterViewInit {
   private subscriptions: Array<Subscription> = new Array<Subscription>();
@@ -45,15 +45,15 @@ export class BorrowComponent implements OnInit, OnDestroy, AfterViewInit {
           let bookIssueDTO = response.body;
           if (bookIssueDTO.hasError) {
             alert(bookIssueDTO.message);
-            this.showLoader = false;
+          } else {
+            this.dataSource.data.forEach(value => {
+              if (value.id === bookIssueDTO.bookDTO.id) {
+                Object.assign(value, bookIssueDTO.bookDTO);
+                alert(bookIssueDTO.message);
+              }
+            });
           }
-          this.dataSource.data.forEach(value => {
-            if (value.id === bookIssueDTO.bookDTO.id) {
-              Object.assign(value, bookIssueDTO.bookDTO);
-              alert(bookIssueDTO.message);
-              this.showLoader = false;
-            }
-          });
+          this.showLoader = false;
         }));
   }
 }
