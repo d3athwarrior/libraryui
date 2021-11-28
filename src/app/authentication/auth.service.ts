@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {catchError, Observable, throwError} from "rxjs";
+import {RequestOptions} from "../common/request-options";
 
 @Injectable({
   providedIn: 'root',
@@ -18,13 +19,15 @@ export class AuthService {
   }
 
   login(userId: Number): Observable<any> {
-    return this.httpClient.post<number>(environment.apiUrl + "/login", userId, {observe: 'response'}).pipe(catchError(AuthService.handleError));
+    return this.httpClient.post<number>(environment.apiUrl + "/login", userId, RequestOptions.options)
+      .pipe(catchError(AuthService.handleError));
   }
 
   logout(): void {
     this.isLoggedIn = false;
   }
 
+  // This is just a place holder, errors have not been handled gracefully yet
   private static handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
       // A client-side or network error occurred. Handle it accordingly.
