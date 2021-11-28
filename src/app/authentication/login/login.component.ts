@@ -29,7 +29,7 @@ export class LoginComponent {
       this.authService.isLoggedIn = true;
       this.authService.loggedInUserId = response;
       if (response != -1) {
-        this.router.navigate(['/user-home'], navigationExtras).then(value => {
+        this.router.navigate([this.authService.redirectUrl || '/user-home'], navigationExtras).then(value => {
           if (!value)
             console.log(value);
         });
