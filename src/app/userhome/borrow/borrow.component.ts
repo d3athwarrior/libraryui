@@ -1,6 +1,5 @@
 import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {BookService} from "../../common/service/book.service";
-import {BorrowerService} from "../borrower.service";
 import {BookDTO} from "../../common/dto/book-dto";
 import {Subscription} from "rxjs";
 import {MatTableDataSource} from "@angular/material/table";
@@ -19,7 +18,7 @@ export class BorrowComponent implements OnInit, OnDestroy, AfterViewInit {
   showLoader: Boolean = true;
   resultsLength = 0;
 
-  constructor(private bookService: BookService, private borrowerService: BorrowerService, private authService: AuthService) {
+  constructor(private bookService: BookService, private authService: AuthService) {
   }
 
   ngOnInit(): void {
