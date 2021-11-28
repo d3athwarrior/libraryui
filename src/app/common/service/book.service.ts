@@ -22,7 +22,7 @@ export class BookService extends BaseHttpService {
     return this.httpClient.get<BookDTO[]>(environment.apiUrl + "/books/all");
   }
 
-  public postABorrowRequest(bookId: Number, userId: Number): Observable<BookIssueDTO> {
-    return this.httpClient.post<BookIssueDTO>(environment.apiUrl + bookId + "/issueto/" + userId, this.options);
+  public postABorrowRequest(bookId: Number, userId: Number): Observable<any> {
+    return this.httpClient.post<BookIssueDTO>(environment.apiUrl + "/books/" + bookId.toString() + "/issueto/" + userId.toString(), null, this.options);
   }
 }

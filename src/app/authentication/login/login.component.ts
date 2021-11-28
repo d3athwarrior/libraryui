@@ -19,15 +19,9 @@ export class LoginComponent {
       queryParamsHandling: 'preserve',
       preserveFragment: true
     };
-    // if (!environment.production) {
-    //   this.authService.isLoggedIn = true;
-    //   this.authService.loggedInUserId = 1;
-    //   this.router.navigate(['/user-home'], navigationExtras).then(value => {
-    //   });
-    // } else {
     this.authService.login(this.userId).subscribe(response => {
       this.authService.isLoggedIn = true;
-      this.authService.loggedInUserId = response;
+      this.authService.loggedInUserId = response.body;
       if (response != -1) {
         this.router.navigate([this.authService.redirectUrl || '/user-home'], navigationExtras).then(value => {
           if (!value)

@@ -5,6 +5,10 @@ import {MyBooksComponent} from './mybooks/my-books.component';
 import {RouterModule, Routes} from "@angular/router";
 import {UserHomeComponent} from "./user-home.component";
 import {MatTabsModule} from "@angular/material/tabs";
+import {MatTableModule} from "@angular/material/table";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatButtonModule} from "@angular/material/button";
 
 const userRoutes: Routes = [
   {
@@ -35,7 +39,11 @@ const userRoutes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(userRoutes),
-    MatTabsModule
+    MatTabsModule,
+    MatTableModule,
+    MatProgressSpinnerModule,
+    MatPaginatorModule,
+    MatButtonModule
   ]
 })
 export class UserHomeModule {
