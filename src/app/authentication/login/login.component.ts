@@ -37,9 +37,9 @@ export class LoginComponent {
         /*
          * Preferably a material dialog should be shown or a field on the UI should be used to show error
          */
-          alert("Invalid user")
-        }
-      });
+        alert("Invalid user")
+      }
+    });
     // }
   }
 }

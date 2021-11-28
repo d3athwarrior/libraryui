@@ -2,12 +2,12 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {catchError, Observable, throwError} from "rxjs";
-import {RequestOptions} from "../common/request-options";
+import {BaseHttpService} from "../common/service/base-http-service";
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService {
+export class AuthService extends BaseHttpService {
   isLoggedIn = false;
 
   loggedInUserId: number = -1;
@@ -15,11 +15,12 @@ export class AuthService {
   // store the URL so we can redirect after logging in
   redirectUrl: string | null = null;
 
-  constructor(private httpClient: HttpClient) {
+  constructor(httpClient: HttpClient) {
+    super(httpClient);
   }
 
   login(userId: Number): Observable<any> {
-    return this.httpClient.post<number>(environment.apiUrl + "/login", userId, RequestOptions.options)
+    return this.httpClient.post<number>(environment.apiUrl + "/login", userId, this.options)
       .pipe(catchError(AuthService.handleError));
   }
 
